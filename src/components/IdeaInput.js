@@ -24,7 +24,7 @@ class IdeaInput extends Component {
             <input
               type="text"
               className="form-control text-capitalize"
-              placeholder="Auto Generated"
+              placeholder="ID Auto Generated"
               disabled
             />
           </div>
@@ -41,6 +41,7 @@ class IdeaInput extends Component {
                 placeholder="Date"
                 value={date}
                 onChange={handleDateChange}
+                required
               />
               <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
@@ -59,6 +60,7 @@ class IdeaInput extends Component {
               placeholder="Title"
               value={title}
               onChange={handleTitleChange}
+              required
             />
           </div>
           <div className="input-group">
@@ -72,6 +74,7 @@ class IdeaInput extends Component {
               placeholder="Body"
               value={body}
               onChange={handleBodyChange}
+              required
             />
           </div>
           <button

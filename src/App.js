@@ -14,19 +14,11 @@ class App extends Component {
     body: "",
     editIdea: false
   };
-  handleTitleChange = e => {
+
+  onHandleChange = e => {
+    const { name, value } = e.target;
     this.setState({
-      title: e.target.value
-    });
-  };
-  handleDateChange = e => {
-    this.setState({
-      date: e.target.value
-    });
-  };
-  handleBodyChange = e => {
-    this.setState({
-      body: e.target.value
+      [name]: value
     });
   };
   handleSubmit = e => {
@@ -37,7 +29,7 @@ class App extends Component {
       date: this.state.date,
       body: this.state.body
     };
-    console.log(newIdea);
+
     const updatedIdeas = [...this.state.ideas, newIdea];
 
     this.setState({
@@ -78,9 +70,7 @@ class App extends Component {
               title={this.state.title}
               date={this.state.date}
               body={this.state.body}
-              handleTitleChange={this.handleTitleChange}
-              handleDateChange={this.handleDateChange}
-              handleBodyChange={this.handleBodyChange}
+              onChange={this.onHandleChange}
               handleSubmit={this.handleSubmit}
               editIdea={this.state.editIdea}
             />

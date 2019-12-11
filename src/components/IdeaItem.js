@@ -4,7 +4,7 @@ class IdeaItem extends Component {
   render() {
     const { id, date, title, body, handleDelete, handleEdit } = this.props;
     return (
-      <li className="col-2 idea list-group-item text-capitalize d-flex justify-content-between my-2">
+      <li className="list-group-item text-capitalize d-flex justify-content-between my-2">
         <div>
           <h5>
             <strong>ID</strong>

@@ -1,12 +1,1 @@
-.idea-icon span i:hover {
-  cursor: pointer;
-}
-.idea-item .idea-icon {
-  display: none;
-}
-.idea-item:hover .idea-icon {
-  display: block;
-}
-.idea {
-  display: inline;
-}
+

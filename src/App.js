@@ -43,11 +43,22 @@ class App extends Component {
       id: "",
       editIdea: false
     });
-    axios
-      .post("https://5df0e9859df6fb00142bd4e3.mockapi.io/ideas", newIdea)
-      .then(response => {
-        console.log(response.data);
-      });
+    {
+      this.state.editIdea
+        ? axios
+            .put(
+              `https://5df0e9859df6fb00142bd4e3.mockapi.io/ideas/${this.state.id}`,
+              newIdea
+            )
+            .then(response => {
+              console.log(response.data);
+            })
+        : axios
+            .post("https://5df0e9859df6fb00142bd4e3.mockapi.io/ideas", newIdea)
+            .then(response => {
+              console.log(response.data);
+            });
+    }
   };
   handleDelete = id => {
     const filteredIdeas = this.state.ideas.filter(idea => idea.id !== id);

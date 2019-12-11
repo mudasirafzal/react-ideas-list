@@ -4,37 +4,47 @@ class IdeaItem extends Component {
   render() {
     const { id, date, title, body, handleDelete, handleEdit } = this.props;
     return (
-      <li className="list-group-item text-capitalize d-flex justify-content-between my-2">
-        <div>
-          <h5>
-            <strong>ID</strong>
-          </h5>
-          <h5>
-            <strong>Date</strong>
-          </h5>
-          <h5>
-            <strong>Idea</strong>
-          </h5>
-          <h5>
-            <strong>Body</strong>
-          </h5>
-        </div>
-        <div class="text-right idea-item">
-          <h6>{id}</h6>
-          <h6>{date}</h6>
-          <h6>{title}</h6>
-          <h6>{body}</h6>
+      <table className="col-2 table table-borderless text-capitalize m-2">
+        <tbody>
+          <div className="idea-item">
+            <tr className="col-12">
+              <th>
+                <strong>ID</strong>
+              </th>
+              <td>{id}</td>
+            </tr>
+            <tr className="col-12">
+              <th>
+                <strong>Date</strong>
+              </th>
+              <td>{date}</td>
+            </tr>
+            <tr className="col-12">
+              <th>
+                <strong>Idea</strong>
+              </th>
+              <td>{title}</td>
+            </tr>
+            <tr className="col-12">
+              <th>
+                <strong>Body</strong>
+              </th>
+              <td>{body}</td>
+            </tr>
 
-          <div className="idea-icon">
-            <span class="mx-2 text-success" onClick={handleEdit}>
-              <i className="fas fa-pen"></i>
-            </span>
-            <span class="mx-2 text-danger" onClick={handleDelete}>
-              <i className="fas fa-trash"></i>
-            </span>
+            <tr>
+              <div className="idea-icon text-right">
+                <span className="mx-2 text-success" onClick={handleEdit}>
+                  <i className="fas fa-pen"></i>
+                </span>
+                <span className="mx-2 text-danger" onClick={handleDelete}>
+                  <i className="fas fa-trash"></i>
+                </span>
+              </div>
+            </tr>
           </div>
-        </div>
-      </li>
+        </tbody>
+      </table>
     );
   }
 }

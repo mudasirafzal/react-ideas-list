@@ -4,7 +4,7 @@ class IdeaList extends Component {
   render() {
     const { ideas, handleDelete, handleEdit } = this.props;
     return (
-      <ul className="list-group my-5">
+      <div>
         <h3 className=" text-capitalize text-center">Ideas List</h3>
         {ideas.map(idea => {
           return (
@@ -19,7 +19,7 @@ class IdeaList extends Component {
             />
           );
         })}
-      </ul>
+      </div>
     );
   }
 }

@@ -1,9 +1,10 @@
 import React, { Component } from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import IdeaInput from "./components/IdeaInput";
 import IdeaList from "./components/IdeaList";
 import { getIdeas } from "./services";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 import axios from "axios";
 class App extends Component {
   state = {
@@ -88,7 +89,7 @@ class App extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-12 mx-auto nt-4">
+          <div className="col-5 mx-auto nt-4">
             <h3 className="text-capitalize text-center">Idea Input</h3>
             <IdeaInput
               id={this.state.id}
@@ -99,6 +100,8 @@ class App extends Component {
               handleSubmit={this.handleSubmit}
               editIdea={this.state.editIdea}
             />
+          </div>
+          <div class="col-12 mx-auto nt-4">
             <IdeaList
               ideas={this.state.ideas}
               handleDelete={this.handleDelete}

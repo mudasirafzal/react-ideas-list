@@ -5,34 +5,21 @@ export default ({ title, date, body, onChange, handleSubmit, editIdea }) => (
     <form onSubmit={handleSubmit}>
       <div className="input-group">
         <div className="input-group date" id="datetimepicker1">
-          <div className="input-group-prepend">
-            <div className="input-group-text bg-primary text-white">
-              <i className="fas fa-book"></i>
-            </div>
-          </div>
           <input
             type="text"
-            className="form-control text-capitalize"
+            className="text-capitalize"
             placeholder="Date"
             value={date}
             onChange={onChange}
             name="date"
             required
           />
-          <span class="input-group-addon">
-            <span class="glyphicon glyphicon-calendar"></span>
-          </span>
         </div>
       </div>
       <div className="input-group">
-        <div className="input-group-prepend">
-          <div className="input-group-text bg-primary text-white">
-            <i className="fas fa-book"></i>
-          </div>
-        </div>
         <input
           type="text"
-          className="form-control text-capitalize"
+          className="text-capitalize"
           placeholder="Title"
           value={title}
           onChange={onChange}
@@ -41,13 +28,8 @@ export default ({ title, date, body, onChange, handleSubmit, editIdea }) => (
         />
       </div>
       <div className="input-group">
-        <div className="input-group-prepend">
-          <div className="input-group-text bg-primary text-white">
-            <i className="fas fa-book"></i>
-          </div>
-        </div>
         <textarea
-          className="form-control text-capitalize"
+          className="text-capitalize"
           placeholder="Body"
           value={body}
           onChange={onChange}

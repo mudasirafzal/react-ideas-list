@@ -1,20 +1,22 @@
 import React, { Component } from "react";
 import IdeaInput from "./components/IdeaInput";
 import IdeaList from "./components/IdeaList";
-
+import { getIdeas } from "./services";
 import "bootstrap/dist/css/bootstrap.min.css";
-import uuid from "uuid";
-
+import axios from "axios";
 class App extends Component {
   state = {
     ideas: [],
-    id: uuid(),
+    id: "",
     title: "",
-    date: "",
+    field_created_date: "",
     body: "",
     editIdea: false
   };
-
+  async componentDidMount() {
+    const ideas = await getIdeas();
+    this.setState({ ideas });
+  }
   onHandleChange = e => {
     const { name, value } = e.target;
     this.setState({
@@ -26,7 +28,7 @@ class App extends Component {
     const newIdea = {
       id: this.state.id,
       title: this.state.title,
-      date: this.state.date,
+      field_created_date: this.state.field_created_date,
       body: this.state.body
     };
 
@@ -35,27 +37,37 @@ class App extends Component {
     this.setState({
       ideas: updatedIdeas,
       title: "",
-      date: "",
+      field_created_date: "",
       body: "",
-      id: uuid(),
+      id: "",
       editIdea: false
     });
+    axios
+      .post("http://5df0e9859df6fb00142bd4e3.mockapi.io/ideas", newIdea)
+      .then(response => {
+        console.log(response.data);
+      });
   };
   handleDelete = id => {
     const filteredIdeas = this.state.ideas.filter(idea => idea.id !== id);
     this.setState({
       ideas: filteredIdeas
     });
+    axios
+      .delete("http://5df0e9859df6fb00142bd4e3.mockapi.io/ideas/:id")
+      .then(response => {
+        console.log(response.data);
+      });
   };
   handleEdit = id => {
     const filteredIdeas = this.state.ideas.filter(idea => idea.id !== id);
-    const selectedIdea = this.state.ideas.find(idea => idea.id == id);
+    const selectedIdea = this.state.ideas.find(idea => idea.id === id);
 
     this.setState({
       ideas: filteredIdeas,
       id: selectedIdea.id,
       title: selectedIdea.title,
-      date: selectedIdea.date,
+      field_created_date: selectedIdea.field_created_date,
       body: selectedIdea.body,
       editIdea: true
     });
@@ -67,8 +79,9 @@ class App extends Component {
           <div className="col-12 mx-auto nt-4">
             <h3 className="text-capitalize text-center">Idea Input</h3>
             <IdeaInput
+              id={this.state.id}
               title={this.state.title}
-              date={this.state.date}
+              field_created_date={this.state.field_created_date}
               body={this.state.body}
               onChange={this.onHandleChange}
               handleSubmit={this.handleSubmit}

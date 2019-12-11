@@ -2,7 +2,14 @@ import React, { Component } from "react";
 
 class IdeaItem extends Component {
   render() {
-    const { id, date, title, body, handleDelete, handleEdit } = this.props;
+    const {
+      id,
+      field_created_date,
+      title,
+      body,
+      handleDelete,
+      handleEdit
+    } = this.props;
     return (
       <li className="list-group-item text-capitalize d-flex justify-content-between my-2">
         <div>
@@ -21,7 +28,7 @@ class IdeaItem extends Component {
         </div>
         <div>
           <h6>{id}</h6>
-          <h6>{date}</h6>
+          <h6>{field_created_date}</h6>
           <h6>{title}</h6>
           <h6>{body}</h6>
 

@@ -1,21 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 
-export default ({ title, date, body, onChange, handleSubmit, editIdea }) => (
+export default ({
+  title,
+  field_created_date,
+  body,
+  onChange,
+  handleSubmit,
+  editIdea
+}) => (
   <div className="card card-body my-5">
     <form onSubmit={handleSubmit}>
-      <div className="input-group">
-        <div className="input-group-prepend">
-          <div className="input-group-text bg-primary text-white">
-            <i className="fas fa-book"></i>
-          </div>
-        </div>
-        <input
-          type="text"
-          className="form-control text-capitalize"
-          placeholder="ID Auto Generated"
-          disabled
-        />
-      </div>
       <div className="input-group">
         <div className="input-group date" id="datetimepicker1">
           <div className="input-group-prepend">
@@ -27,9 +21,9 @@ export default ({ title, date, body, onChange, handleSubmit, editIdea }) => (
             type="text"
             className="form-control text-capitalize"
             placeholder="Date"
-            value={date}
+            value={field_created_date}
             onChange={onChange}
-            name="date"
+            name="field_created_date"
             required
           />
           <span class="input-group-addon">

@@ -11,7 +11,7 @@ class IdeaList extends Component {
             <IdeaItem
               key={idea.id}
               id={idea.id}
-              date={idea.date}
+              field_created_date={idea.field_created_date}
               title={idea.title}
               body={idea.body}
               handleDelete={() => handleDelete(idea.id)}

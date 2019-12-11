@@ -2,33 +2,26 @@ import React, { Component } from "react";
 
 class IdeaItem extends Component {
   render() {
-    const {
-      id,
-      field_created_date,
-      title,
-      body,
-      handleDelete,
-      handleEdit
-    } = this.props;
+    const { id, date, title, body, handleDelete, handleEdit } = this.props;
     return (
-      <li className="list-group-item text-capitalize d-flex justify-content-between my-2">
+      <li className="col-2 idea list-group-item text-capitalize d-flex justify-content-between my-2">
         <div>
           <h5>
             <strong>ID</strong>
           </h5>
           <h5>
-            <strong>Created Date</strong>
+            <strong>Date</strong>
           </h5>
           <h5>
             <strong>Idea</strong>
           </h5>
           <h5>
-            <strong>Desc</strong>
+            <strong>Body</strong>
           </h5>
         </div>
-        <div>
+        <div class="text-right idea-item">
           <h6>{id}</h6>
-          <h6>{field_created_date}</h6>
+          <h6>{date}</h6>
           <h6>{title}</h6>
           <h6>{body}</h6>
 

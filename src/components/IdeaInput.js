@@ -1,13 +1,6 @@
 import React from "react";
 
-export default ({
-  title,
-  field_created_date,
-  body,
-  onChange,
-  handleSubmit,
-  editIdea
-}) => (
+export default ({ title, date, body, onChange, handleSubmit, editIdea }) => (
   <div className="card card-body my-5">
     <form onSubmit={handleSubmit}>
       <div className="input-group">
@@ -21,9 +14,9 @@ export default ({
             type="text"
             className="form-control text-capitalize"
             placeholder="Date"
-            value={field_created_date}
+            value={date}
             onChange={onChange}
-            name="field_created_date"
+            name="date"
             required
           />
           <span class="input-group-addon">

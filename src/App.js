@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./App.css";
 import IdeaInput from "./components/IdeaInput";
 import IdeaList from "./components/IdeaList";
 import { getIdeas } from "./services";
@@ -9,7 +10,7 @@ class App extends Component {
     ideas: [],
     id: "",
     title: "",
-    field_created_date: "",
+    date: "",
     body: "",
     editIdea: false
   };
@@ -28,7 +29,7 @@ class App extends Component {
     const newIdea = {
       id: this.state.id,
       title: this.state.title,
-      field_created_date: this.state.field_created_date,
+      date: this.state.date,
       body: this.state.body
     };
 
@@ -37,7 +38,7 @@ class App extends Component {
     this.setState({
       ideas: updatedIdeas,
       title: "",
-      field_created_date: "",
+      date: "",
       body: "",
       id: "",
       editIdea: false
@@ -67,7 +68,7 @@ class App extends Component {
       ideas: filteredIdeas,
       id: selectedIdea.id,
       title: selectedIdea.title,
-      field_created_date: selectedIdea.field_created_date,
+      date: selectedIdea.date,
       body: selectedIdea.body,
       editIdea: true
     });
@@ -81,7 +82,7 @@ class App extends Component {
             <IdeaInput
               id={this.state.id}
               title={this.state.title}
-              field_created_date={this.state.field_created_date}
+              date={this.state.date}
               body={this.state.body}
               onChange={this.onHandleChange}
               handleSubmit={this.handleSubmit}

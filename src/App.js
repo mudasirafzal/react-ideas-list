@@ -43,7 +43,7 @@ class App extends Component {
       editIdea: false
     });
     axios
-      .post("http://5df0e9859df6fb00142bd4e3.mockapi.io/ideas", newIdea)
+      .post("https://5df0e9859df6fb00142bd4e3.mockapi.io/ideas", newIdea)
       .then(response => {
         console.log(response.data);
       });
@@ -54,7 +54,7 @@ class App extends Component {
       ideas: filteredIdeas
     });
     axios
-      .delete("http://5df0e9859df6fb00142bd4e3.mockapi.io/ideas/:id")
+      .delete("https://5df0e9859df6fb00142bd4e3.mockapi.io/ideas/:id")
       .then(response => {
         console.log(response.data);
       });

@@ -26,9 +26,6 @@ table tbody > tr > td {
 .table-borderless > thead > tr > th {
   border: none;
 }
-.hide {
-  display: none;
-}
 .show {
   text-align: right;
   font-size: 12px;

@@ -45,10 +45,10 @@ class App extends Component {
 
     this.setState({
       //ideas: updatedIdeas,
-      title: "",
-      date: "",
-      body: "",
-      id: "",
+      //title: "",
+      //date: "",
+      //body: "",
+      //id: "",
       editIdea: false,
       showForm: false
     });
@@ -60,12 +60,12 @@ class App extends Component {
               newIdea
             )
             .then(response => {
-              //console.log(response.data);
+              this.setState({ ideas: [...this.state.ideas, newIdea] });
             })
         : axios
             .post("https://5df0e9859df6fb00142bd4e3.mockapi.io/ideas", newIdea)
             .then(response => {
-              //console.log(response.data);
+              this.setState({ ideas: [...this.state.ideas, newIdea] });
             });
     }
   };
@@ -101,11 +101,6 @@ class App extends Component {
       body: "",
       showForm: true
     });
-    axios
-      .get("https://5df0e9859df6fb00142bd4e3.mockapi.io/ideas/")
-      .then(response => {
-        //console.log(response.data);
-      });
   }
   render() {
     //console.log(this.state.showForm);

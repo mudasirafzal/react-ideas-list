@@ -10,6 +10,7 @@ export default ({
   editIdea
 }) => {
   const titleRef = useRef(null);
+  const focustextarea = false;
   useEffect(() => {
     titleRef.current.focus();
   }, []);
@@ -52,11 +53,16 @@ export default ({
             }}
             name="body"
             required
+            maxlength="140"
           />
+
           <div className="counter input-group">
-            <p className={chars_left >= 1 ? "show" : "hide"}>
-              Characters: &lt; 15 ({chars_left} more..)
-            </p>
+            {chars_left >= 1 && (
+              <p className="show">
+                {" "}
+                Characters: &lt; 15 (Remaining {chars_left})
+              </p>
+            )}
           </div>
         </div>
         <button

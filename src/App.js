@@ -4,7 +4,6 @@ import "./App.css";
 import IdeaInput from "./components/IdeaInput";
 import IdeaList from "./components/IdeaList";
 import { getIdeas } from "./services";
-
 import axios from "axios";
 class App extends Component {
   state = {
@@ -13,7 +12,8 @@ class App extends Component {
     title: "",
     date: "",
     body: "",
-    editIdea: false
+    editIdea: false,
+    showForm: false
   };
   async componentDidMount() {
     const ideas = await getIdeas();
@@ -33,16 +33,16 @@ class App extends Component {
       date: this.state.date,
       body: this.state.body
     };
-
-    const updatedIdeas = [...this.state.ideas, newIdea];
+    //const updatedIdeas = [...this.state.ideas, newIdea];
 
     this.setState({
-      ideas: updatedIdeas,
+      //ideas: updatedIdeas,
       title: "",
       date: "",
       body: "",
       id: "",
-      editIdea: false
+      editIdea: false,
+      showForm: false
     });
     {
       this.state.editIdea
@@ -52,12 +52,12 @@ class App extends Component {
               newIdea
             )
             .then(response => {
-              console.log(response.data);
+              //console.log(response.data);
             })
         : axios
             .post("https://5df0e9859df6fb00142bd4e3.mockapi.io/ideas", newIdea)
             .then(response => {
-              console.log(response.data);
+              //console.log(response.data);
             });
     }
   };
@@ -69,7 +69,7 @@ class App extends Component {
     axios
       .delete(`https://5df0e9859df6fb00142bd4e3.mockapi.io/ideas/${id}`)
       .then(response => {
-        console.log(response.data);
+        //console.log(response.data);
       });
   };
   handleEdit = id => {
@@ -82,24 +82,47 @@ class App extends Component {
       title: selectedIdea.title,
       date: selectedIdea.date,
       body: selectedIdea.body,
-      editIdea: true
+      editIdea: true,
+      showForm: true
     });
   };
+  getIdeaForm() {
+    this.setState({
+      title: "",
+      date: "",
+      body: "",
+      showForm: true
+    });
+    axios
+      .get("https://5df0e9859df6fb00142bd4e3.mockapi.io/ideas/")
+      .then(response => {
+        //console.log(response.data);
+      });
+  }
   render() {
+    //console.log(this.state.showForm);
     return (
       <div className="container">
         <div className="row">
           <div className="col-5 mx-auto nt-4">
-            <h3 className="text-capitalize text-center">Idea Input</h3>
-            <IdeaInput
-              id={this.state.id}
-              title={this.state.title}
-              date={this.state.date}
-              body={this.state.body}
-              onChange={this.onHandleChange}
-              handleSubmit={this.handleSubmit}
-              editIdea={this.state.editIdea}
-            />
+            <button
+              onClick={this.getIdeaForm.bind(this)}
+              className="btn btn-block btn-primary"
+            >
+              Get Idea
+            </button>
+
+            {this.state.showForm && (
+              <IdeaInput
+                id={this.state.id}
+                title={this.state.title}
+                date={this.state.date}
+                body={this.state.body}
+                onChange={this.onHandleChange}
+                handleSubmit={this.handleSubmit}
+                editIdea={this.state.editIdea}
+              />
+            )}
           </div>
           <div class="col-12 mx-auto nt-4">
             <IdeaList

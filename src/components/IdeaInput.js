@@ -19,7 +19,7 @@ export default ({
         <div className="input-group">
           <div className="input-group date" id="datetimepicker1">
             <input
-              type="text"
+              type="number"
               className="text-capitalize"
               placeholder="Date"
               value={date}
@@ -55,7 +55,7 @@ export default ({
           />
           <div className="counter input-group">
             <p className={chars_left >= 1 ? "show" : "hide"}>
-              Characters: &lt; 15
+              Characters: &lt; 15 ({chars_left} more..)
             </p>
           </div>
         </div>

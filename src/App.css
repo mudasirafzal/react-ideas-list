@@ -15,6 +15,9 @@ table {
   padding: 10px;
   border-radius: 5px;
 }
+table tbody > tr > td {
+  word-break: break-word;
+}
 .table-borderless > tbody > tr > td,
 .table-borderless > tbody > tr > th,
 .table-borderless > tfoot > tr > td,

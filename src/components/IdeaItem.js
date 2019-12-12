@@ -5,7 +5,7 @@ class IdeaItem extends Component {
     const { id, date, title, body, handleDelete, handleEdit } = this.props;
     return (
       <table className="col-lg-2 col-md-4 col-sm-8 col-xs-12 mr-4 mb-4 text-left">
-        <tbody>
+        <tbody className="col-lg-2 col-md-4 col-sm-8 col-xs-12 mr-4 mb-4">
           <tr>
             <th>
               <strong>ID</strong>

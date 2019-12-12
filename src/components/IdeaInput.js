@@ -1,5 +1,14 @@
 import React, { useRef, useEffect } from "react";
-export default ({ title, date, body, onChange, handleSubmit, editIdea }) => {
+export default ({
+  title,
+  date,
+  body,
+  chars_left,
+  onChange,
+  countChange,
+  handleSubmit,
+  editIdea
+}) => {
   const titleRef = useRef(null);
   useEffect(() => {
     titleRef.current.focus();
@@ -37,10 +46,18 @@ export default ({ title, date, body, onChange, handleSubmit, editIdea }) => {
             className="text-capitalize"
             placeholder="Body"
             value={body}
-            onChange={onChange}
+            onChange={e => {
+              onChange(e);
+              countChange(e);
+            }}
             name="body"
             required
           />
+          <div className="counter input-group">
+            <p className={chars_left >= 1 ? "show" : "hide"}>
+              Characters: &lt; 15
+            </p>
+          </div>
         </div>
         <button
           type="submit"

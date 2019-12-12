@@ -12,6 +12,7 @@ class App extends Component {
     title: "",
     date: "",
     body: "",
+    chars_left: 15,
     editIdea: false,
     showForm: false
   };
@@ -24,6 +25,13 @@ class App extends Component {
     this.setState({
       [name]: value
     });
+  };
+  onCountChange = e => {
+    var input = e.target.value.length;
+    this.setState({
+      chars_left: 15 - input
+    });
+    console.log(this.state.chars_left);
   };
   handleSubmit = e => {
     e.preventDefault();
@@ -118,7 +126,9 @@ class App extends Component {
                 title={this.state.title}
                 date={this.state.date}
                 body={this.state.body}
+                chars_left={this.state.chars_left}
                 onChange={this.onHandleChange}
+                countChange={this.onCountChange}
                 handleSubmit={this.handleSubmit}
                 editIdea={this.state.editIdea}
               />

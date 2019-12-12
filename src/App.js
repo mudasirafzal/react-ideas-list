@@ -104,10 +104,10 @@ class App extends Component {
     return (
       <div className="container">
         <div className="row">
-          <div className="col-5 mx-auto nt-4">
+          <div className="col-lg-6 col-md-8 col-sm-8 col-xs-12 mx-auto nt-4">
             <button
               onClick={this.getIdeaForm.bind(this)}
-              className="btn btn-block btn-primary"
+              className="btn btn-block btn-primary mt-5 mb-5"
             >
               Get Idea
             </button>
@@ -124,7 +124,7 @@ class App extends Component {
               />
             )}
           </div>
-          <div class="col-12 mx-auto nt-4">
+          <div class="col-12 mx-auto nt-4 text-center">
             <IdeaList
               ideas={this.state.ideas}
               handleDelete={this.handleDelete}

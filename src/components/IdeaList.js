@@ -5,7 +5,6 @@ class IdeaList extends Component {
     const { ideas, handleDelete, handleEdit } = this.props;
     return (
       <div>
-        <h3 className=" text-capitalize text-center">Ideas List</h3>
         {ideas.map(idea => {
           return (
             <IdeaItem
